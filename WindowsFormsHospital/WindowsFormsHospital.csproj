@@ -52,16 +52,29 @@
     <Compile Include="Hospital.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Hospital.Designer.cs" />
-    <Compile Include="Medico.cs" />
-    <Compile Include="MedicoAltas.cs">
+    <Compile Include="Hospital.Designer.cs">
+      <DependentUpon>Hospital.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persona\Citas.cs" />
+    <Compile Include="Persona\EnumTipoPersonal.cs" />
+    <Compile Include="Persona\Medico.cs" />
+    <Compile Include="Altas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MedicoAltas.Designer.cs" />
+    <Compile Include="Altas.Designer.cs">
+      <DependentUpon>Altas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persona\Paciente.cs" />
+    <Compile Include="Persona\Persona.cs" />
+    <Compile Include="Persona\Personal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Hospital.resx" />
-    <EmbeddedResource Include="MedicoAltas.resx" />
+    <EmbeddedResource Include="Hospital.resx">
+      <DependentUpon>Hospital.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Altas.resx">
+      <DependentUpon>Altas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

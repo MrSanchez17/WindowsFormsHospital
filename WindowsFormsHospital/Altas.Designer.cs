@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp
 {
-    partial class MedicoAltas
+    partial class Altas
     {
         /// <summary>
         /// Required designer variable.
@@ -41,6 +41,10 @@
             this.labDireccion = new System.Windows.Forms.Label();
             this.butGuardarAlta = new System.Windows.Forms.Button();
             this.butCancelar = new System.Windows.Forms.Button();
+            this.labTipo = new System.Windows.Forms.Label();
+            this.comboBoxAltas = new System.Windows.Forms.ComboBox();
+            this.comboBoxMedico = new System.Windows.Forms.ComboBox();
+            this.labMedico = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labMedicosAltas
@@ -50,9 +54,9 @@
             this.labMedicosAltas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labMedicosAltas.Location = new System.Drawing.Point(43, 32);
             this.labMedicosAltas.Name = "labMedicosAltas";
-            this.labMedicosAltas.Size = new System.Drawing.Size(100, 22);
+            this.labMedicosAltas.Size = new System.Drawing.Size(90, 22);
             this.labMedicosAltas.TabIndex = 0;
-            this.labMedicosAltas.Text = "Medico altas";
+            this.labMedicosAltas.Text = "DAR ALTA";
             // 
             // labName
             // 
@@ -136,7 +140,7 @@
             // 
             // butGuardarAlta
             // 
-            this.butGuardarAlta.Location = new System.Drawing.Point(532, 268);
+            this.butGuardarAlta.Location = new System.Drawing.Point(600, 339);
             this.butGuardarAlta.Name = "butGuardarAlta";
             this.butGuardarAlta.Size = new System.Drawing.Size(104, 32);
             this.butGuardarAlta.TabIndex = 11;
@@ -146,18 +150,57 @@
             // 
             // butCancelar
             // 
-            this.butCancelar.Location = new System.Drawing.Point(408, 268);
+            this.butCancelar.Location = new System.Drawing.Point(476, 339);
             this.butCancelar.Name = "butCancelar";
             this.butCancelar.Size = new System.Drawing.Size(104, 32);
             this.butCancelar.TabIndex = 12;
             this.butCancelar.Text = "Cancelar";
             this.butCancelar.UseVisualStyleBackColor = true;
             // 
-            // MedicoAltas
+            // labTipo
+            // 
+            this.labTipo.AutoSize = true;
+            this.labTipo.Location = new System.Drawing.Point(425, 183);
+            this.labTipo.Name = "labTipo";
+            this.labTipo.Size = new System.Drawing.Size(39, 20);
+            this.labTipo.TabIndex = 13;
+            this.labTipo.Text = "Tipo";
+            // 
+            // comboBoxAltas
+            // 
+            this.comboBoxAltas.FormattingEnabled = true;
+            this.comboBoxAltas.Location = new System.Drawing.Point(429, 203);
+            this.comboBoxAltas.Name = "comboBoxAltas";
+            this.comboBoxAltas.Size = new System.Drawing.Size(160, 28);
+            this.comboBoxAltas.TabIndex = 14;
+            // 
+            // comboBoxMedico
+            // 
+            this.comboBoxMedico.FormattingEnabled = true;
+            this.comboBoxMedico.Location = new System.Drawing.Point(47, 282);
+            this.comboBoxMedico.Name = "comboBoxMedico";
+            this.comboBoxMedico.Size = new System.Drawing.Size(160, 28);
+            this.comboBoxMedico.TabIndex = 16;
+            this.comboBoxMedico.Visible = false;
+            // 
+            // labMedico
+            // 
+            this.labMedico.AutoSize = true;
+            this.labMedico.Location = new System.Drawing.Point(43, 262);
+            this.labMedico.Name = "labMedico";
+            this.labMedico.Size = new System.Drawing.Size(68, 20);
+            this.labMedico.TabIndex = 15;
+            this.labMedico.Text = "Medicos";
+            // 
+            // Altas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 312);
+            this.ClientSize = new System.Drawing.Size(716, 383);
+            this.Controls.Add(this.comboBoxMedico);
+            this.Controls.Add(this.labMedico);
+            this.Controls.Add(this.comboBoxAltas);
+            this.Controls.Add(this.labTipo);
             this.Controls.Add(this.butCancelar);
             this.Controls.Add(this.butGuardarAlta);
             this.Controls.Add(this.textBox1);
@@ -171,9 +214,9 @@
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labName);
             this.Controls.Add(this.labMedicosAltas);
-            this.Name = "MedicoAltas";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "Altas";
             this.Text = "MedicoAltas";
-            this.Load += new System.EventHandler(this.MedicoAltas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +237,9 @@
         private System.Windows.Forms.Label labDireccion;
         private System.Windows.Forms.Button butGuardarAlta;
         private System.Windows.Forms.Button butCancelar;
+        private System.Windows.Forms.Label labTipo;
+        private System.Windows.Forms.ComboBox comboBoxAltas;
+        private System.Windows.Forms.ComboBox comboBoxMedico;
+        private System.Windows.Forms.Label labMedico;
     }
 }

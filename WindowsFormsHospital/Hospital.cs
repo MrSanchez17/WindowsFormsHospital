@@ -17,22 +17,10 @@ namespace WindowsFormsApp
             InitializeComponent();
         }
 
-        private void Hospital_Load(object sender, EventArgs e)
+        private void butAltaMedico_Click(object sender, EventArgs e)
         {
-            MedicoAltas medicoAltasForm = new MedicoAltas();
+            Altas medicoAltasForm = new Altas();
             medicoAltasForm.ShowDialog();
-        }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // Hospital
-            // 
-            this.ClientSize = new System.Drawing.Size(561, 569);
-            this.Name = "Hospital";
-            this.ResumeLayout(false);
-
         }
     }
 }
