@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsHospital;
 
 namespace WindowsFormsApp
 {
@@ -21,6 +15,31 @@ namespace WindowsFormsApp
         {
             Altas medicoAltasForm = new Altas();
             medicoAltasForm.ShowDialog();
+        }
+
+        private void butListarMedicos_Click(object sender, EventArgs e)
+        {
+            Listado listadoMedicos = new Listado(TipoListado.Medicos);
+            listadoMedicos.ShowDialog();
+        }
+
+        private void butListarPersonal_Click(object sender, EventArgs e)
+        {
+            Listado listadoPersonal = new Listado(TipoListado.Personal);
+            listadoPersonal.ShowDialog();
+        }
+
+        private void labListarPacientes_Click(object sender, EventArgs e)
+        {
+            Listado listadoHospital = new Listado(TipoListado.Pacientes);
+            listadoHospital.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            EliminarPaciente eliminarPacienteForm = new EliminarPaciente();
+            eliminarPacienteForm.ShowDialog();
+
         }
     }
 }

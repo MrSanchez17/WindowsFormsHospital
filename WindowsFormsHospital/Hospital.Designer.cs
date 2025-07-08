@@ -68,6 +68,7 @@
             this.labListarPacientes.TabIndex = 6;
             this.labListarPacientes.Text = "Lista de pacientes";
             this.labListarPacientes.UseVisualStyleBackColor = true;
+            this.labListarPacientes.Click += new System.EventHandler(this.labListarPacientes_Click);
             // 
             // butListarPersonal
             // 
@@ -77,6 +78,7 @@
             this.butListarPersonal.TabIndex = 5;
             this.butListarPersonal.Text = "Lista de personal";
             this.butListarPersonal.UseVisualStyleBackColor = true;
+            this.butListarPersonal.Click += new System.EventHandler(this.butListarPersonal_Click);
             // 
             // butListarMedicos
             // 
@@ -86,6 +88,7 @@
             this.butListarMedicos.TabIndex = 4;
             this.butListarMedicos.Text = "Lista de medicos";
             this.butListarMedicos.UseVisualStyleBackColor = true;
+            this.butListarMedicos.Click += new System.EventHandler(this.butListarMedicos_Click);
             // 
             // button6
             // 
@@ -95,6 +98,7 @@
             this.button6.TabIndex = 8;
             this.button6.Text = "Eliminar paciente";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // butCrearCita
             // 

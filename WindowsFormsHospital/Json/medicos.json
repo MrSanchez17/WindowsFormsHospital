@@ -1,0 +1,38 @@
+[
+  {
+    "Id": "1",
+    "Nombre": "Fernando",
+    "Apellido": "Sanchez",
+    "Telefono": "3456789",
+    "Documento": null,
+    "Direccion": "Calle amadeu vives",
+    "Especialidad": 0
+  },
+  {
+    "Id": "2",
+    "Nombre": "Abdul",
+    "Apellido": "Yamal",
+    "Telefono": "67890",
+    "Documento": null,
+    "Direccion": "pubilla casas",
+    "Especialidad": 0
+  },
+  {
+    "Id": "3",
+    "Nombre": "",
+    "Apellido": "",
+    "Telefono": "",
+    "Documento": null,
+    "Direccion": "",
+    "Especialidad": 0
+  },
+  {
+    "Id": "4",
+    "Nombre": "Alli",
+    "Apellido": "Alah",
+    "Telefono": "567890'",
+    "Documento": null,
+    "Direccion": "moroco",
+    "Especialidad": 0
+  }
+]

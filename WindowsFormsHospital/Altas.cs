@@ -163,13 +163,6 @@ namespace WindowsFormsApp
             switch (tipo)
             {
                 case "Medico":
-                    // Validar que no exista ya el médico (por nombre y apellido)
-                    if (listaMedicos.Any(m => m.Nombre.Equals(personaBase.Nombre, StringComparison.OrdinalIgnoreCase)
-                        && m.Apellido.Equals(personaBase.Apellido, StringComparison.OrdinalIgnoreCase)))
-                    {
-                        MessageBox.Show("Este médico ya está registrado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
 
                     Persona nuevoMedico = new Persona
                     {
@@ -185,13 +178,6 @@ namespace WindowsFormsApp
                     break;
 
                 case "Personal":
-                    // Validar que no exista ya el personal (por nombre y apellido)
-                    if (listaPersonal.Any(p => p.Nombre.Equals(personaBase.Nombre, StringComparison.OrdinalIgnoreCase)
-                                            && p.Apellido.Equals(personaBase.Apellido, StringComparison.OrdinalIgnoreCase)))
-                    {
-                        MessageBox.Show("Este personal ya está registrado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
 
                     Persona nuevoPersonal = new Persona
                     {
@@ -210,14 +196,6 @@ namespace WindowsFormsApp
                     if (comboBoxMedico.SelectedIndex < 0)
                     {
                         MessageBox.Show("Debes seleccionar un médico para el paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    // Validar que no exista ya el paciente (por nombre y apellido)
-                    if (listaPacientes.Any(p => p.Nombre.Equals(personaBase.Nombre, StringComparison.OrdinalIgnoreCase)
-                                            && p.Apellido.Equals(personaBase.Apellido, StringComparison.OrdinalIgnoreCase)))
-                    {
-                        MessageBox.Show("Este paciente ya está registrado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
 

@@ -1,0 +1,32 @@
+[
+  {
+    "IdMedicoAsignado": null,
+    "Id": "1",
+    "Nombre": "Pepito",
+    "Apellido": "Juan",
+    "Telefono": "67890'",
+    "Documento": null,
+    "Direccion": "san juan",
+    "Especialidad": 3
+  },
+  {
+    "IdMedicoAsignado": "2",
+    "Id": "2",
+    "Nombre": "Mohamed",
+    "Apellido": "Salah",
+    "Telefono": "56789",
+    "Documento": null,
+    "Direccion": "egypy",
+    "Especialidad": 3
+  },
+  {
+    "IdMedicoAsignado": "2",
+    "Id": "3",
+    "Nombre": "dfghjklñ",
+    "Apellido": "dfghjklñ´",
+    "Telefono": "´567890'",
+    "Documento": null,
+    "Direccion": "vbnjklñ",
+    "Especialidad": 3
+  }
+]

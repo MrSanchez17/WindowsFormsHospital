@@ -49,6 +49,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EliminarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EliminarPaciente.Designer.cs">
+      <DependentUpon>EliminarPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalManger.cs" />
+    <Compile Include="Listado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listado.Designer.cs">
+      <DependentUpon>Listado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Hospital.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,11 +82,17 @@
     <Compile Include="Persona\Personal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EliminarPaciente.resx">
+      <DependentUpon>EliminarPaciente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Hospital.resx">
       <DependentUpon>Hospital.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Altas.resx">
       <DependentUpon>Altas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listado.resx">
+      <DependentUpon>Listado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -84,6 +103,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Json\medicos.json" />
+    <None Include="Json\pacientes.json" />
+    <None Include="Json\personal.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
