@@ -64,7 +64,7 @@ namespace ConexionSql
             }
             finally
             {
-                    connection.CerrarConexion();
+                connection.CerrarConexion();
             }
         }
         public void Delete(int jobId)
@@ -86,10 +86,32 @@ namespace ConexionSql
             }
             finally
             {
-                    connection.CerrarConexion();
+                connection.CerrarConexion();
             }
         }
-
-
+        public void Update(Job job)
+        {
+            string query = "UPDATE Job SET job_title = @textBoxTrabajo, min_salary = @numericUpDown1, max_salary = @numericUpMaxSalario WHERE IdJob = @id";
+            try
+            {
+                connection.ObtenerConexion();
+                using (SqlCommand cmd = new SqlCommand(query, connection.ObtenerConexion()))
+                {
+                    cmd.Parameters.AddWithValue("@textBoxTrabajo", job.job_title);
+                    cmd.Parameters.AddWithValue("@numericUpDown1", job.min_salary);
+                    cmd.Parameters.AddWithValue("@numericUpMaxSalario", job.max_salary);
+                    cmd.Parameters.AddWithValue("@id", job.IdJob);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al actualizar el trabajo: " + ex.Message);
+            }
+            finally
+            {
+                connection.CerrarConexion();
+            }
+        }
     }
 }

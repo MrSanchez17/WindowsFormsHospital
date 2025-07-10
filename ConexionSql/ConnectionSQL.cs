@@ -11,52 +11,39 @@ namespace ConexionSql
         public ConnectionSQL()
         {
             InitializeComponent();
-            this.Load += buttonRefresh_Click; 
+            this.Load += buttonRefresh_Click;
+            dataGridViewMostrar.CellEndEdit += dataGridViewMostrar_CellEndEdit;
+
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
 
-                    TrabajoServicio servicio = new TrabajoServicio();
-                    List<Job> jobs = servicio.GetAll();
-                    dataGridViewMostrar.DataSource = jobs;
+            TrabajoServicio servicio = new TrabajoServicio();
+            List<Job> jobs = servicio.GetAll();
+            dataGridViewMostrar.DataSource = jobs;
         }
 
         private void buttonAñadir_Click(object sender, EventArgs e)
         {
-            DBConexion conexionBD = new DBConexion();
-            SqlConnection conexion = conexionBD.ObtenerConexion();
 
-            if (conexion != null)
+            string titulo = textBoxTrabajo.Text;
+            decimal minSalary = numericUpDown1.Value;
+            decimal maxSalary = numericUpMaxSalario.Value;
+
+            Job nuevoTrabajo = new Job
             {
-                try
-                {
-                    string titulo = textBoxTrabajo.Text;
-                    decimal minSalary = numericUpDown1.Value;
-                    decimal maxSalary = numericUpMaxSalario.Value;
+                job_title = titulo,
+                min_salary = minSalary,
+                max_salary = maxSalary
+            };
 
-                    Job nuevoTrabajo = new Job
-                    {
-                        job_title = titulo,
-                        min_salary = minSalary,
-                        max_salary = maxSalary
-                    };
+            TrabajoServicio servicio = new TrabajoServicio();
+            servicio.Save(nuevoTrabajo);
 
-                    TrabajoServicio servicio = new TrabajoServicio();
-                    servicio.Save(nuevoTrabajo);
+            MessageBox.Show("Trabajo guardado correctamente.");
+            buttonRefresh_Click(sender, e); // refresca la tabla
 
-                    MessageBox.Show("Trabajo guardado correctamente.");
-                    buttonRefresh_Click(sender, e); // refresca la tabla
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al guardar el trabajo: " + ex.Message);
-                }
-                finally
-                {
-                    conexionBD.CerrarConexion();
-                }
-            }
         }
 
         private void buttonBorrar_Click(object sender, EventArgs e)
@@ -76,29 +63,31 @@ namespace ConexionSql
 
             if (confirmResult == DialogResult.Yes)
             {
-                DBConexion conexionBD = new DBConexion();
-                SqlConnection conexion = conexionBD.ObtenerConexion();
+                TrabajoServicio servicio = new TrabajoServicio();
+                servicio.Delete(jobId);
 
-                if (conexion != null)
+                MessageBox.Show("Trabajo eliminado correctamente.");
+                buttonRefresh_Click(sender, e);
+
+            }
+        }
+
+        private void dataGridViewMostrar_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewMostrar.Rows[e.RowIndex].DataBoundItem is Job job)
+            {
+                // Validación opcional
+                if (job.min_salary > job.max_salary)
                 {
-                    try
-                    {
-                        TrabajoServicio servicio = new TrabajoServicio();
-                        servicio.Delete(jobId);
-
-                        MessageBox.Show("Trabajo eliminado correctamente.");
-                        buttonRefresh_Click(sender, e);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error al eliminar el trabajo: " + ex.Message);
-                    }
-                    finally
-                    {
-                        conexionBD.CerrarConexion();
-                    }
+                    MessageBox.Show("El salario mínimo no puede ser mayor que el máximo.");
+                    buttonRefresh_Click(null, null); 
+                    return;
                 }
+
+                TrabajoServicio servicio = new TrabajoServicio();
+                servicio.Update(job);
             }
         }
     }
+
 }
