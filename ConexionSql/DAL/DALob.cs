@@ -42,5 +42,54 @@ namespace ConexionSql
 
             return jobs;
         }
+        public void Save(Job job)
+        {
+            string query = "INSERT INTO Job (job_title, min_salary, max_salary) VALUES (@textBoxTrabajo, @numericUpDown1, @numericUpMaxSalario)";
+
+            try
+            {
+                connection.ObtenerConexion();
+                SqlCommand cmd = new SqlCommand(query, connection.ObtenerConexion());
+                {
+                    cmd.Parameters.AddWithValue("@textBoxTrabajo", job.job_title);
+                    cmd.Parameters.AddWithValue("@numericUpDown1", job.min_salary);
+                    cmd.Parameters.AddWithValue("@numericUpMaxSalario", job.max_salary);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al guardar el trabajo: " + ex.Message);
+            }
+            finally
+            {
+                    connection.CerrarConexion();
+            }
+        }
+        public void Delete(int jobId)
+        {
+            string query = "DELETE FROM Job WHERE IdJob = @id";
+
+            try
+            {
+                connection.ObtenerConexion();
+                using (SqlCommand cmd = new SqlCommand(query, connection.ObtenerConexion()))
+                {
+                    cmd.Parameters.AddWithValue("@id", jobId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al eliminar el trabajo: " + ex.Message);
+            }
+            finally
+            {
+                    connection.CerrarConexion();
+            }
+        }
+
+
     }
 }

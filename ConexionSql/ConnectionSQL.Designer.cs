@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxTrabajo = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpMaxSalario = new System.Windows.Forms.NumericUpDown();
             this.buttonAñadir = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridViewMostrar = new System.Windows.Forms.DataGridView();
             this.buttonRefresh = new System.Windows.Forms.Button();
+            this.buttonBorrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpMaxSalario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).BeginInit();
@@ -52,12 +53,12 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Añadir trabajo";
             // 
-            // textBox1
+            // textBoxTrabajo
             // 
-            this.textBox1.Location = new System.Drawing.Point(23, 62);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(243, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBoxTrabajo.Location = new System.Drawing.Point(23, 62);
+            this.textBoxTrabajo.Name = "textBoxTrabajo";
+            this.textBoxTrabajo.Size = new System.Drawing.Size(243, 20);
+            this.textBoxTrabajo.TabIndex = 5;
             // 
             // numericUpDown1
             // 
@@ -86,6 +87,7 @@
             this.buttonAñadir.TabIndex = 8;
             this.buttonAñadir.Text = "Añadir";
             this.buttonAñadir.UseVisualStyleBackColor = true;
+            this.buttonAñadir.Click += new System.EventHandler(this.buttonAñadir_Click);
             // 
             // label3
             // 
@@ -117,18 +119,29 @@
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
+            // buttonBorrar
+            // 
+            this.buttonBorrar.Location = new System.Drawing.Point(191, 394);
+            this.buttonBorrar.Name = "buttonBorrar";
+            this.buttonBorrar.Size = new System.Drawing.Size(75, 23);
+            this.buttonBorrar.TabIndex = 12;
+            this.buttonBorrar.Text = "Borrar";
+            this.buttonBorrar.UseVisualStyleBackColor = true;
+            this.buttonBorrar.Click += new System.EventHandler(this.buttonBorrar_Click);
+            // 
             // ConnectionSQL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(293, 445);
+            this.Controls.Add(this.buttonBorrar);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.dataGridViewMostrar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonAñadir);
             this.Controls.Add(this.numericUpMaxSalario);
             this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxTrabajo);
             this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ConnectionSQL";
@@ -143,12 +156,13 @@
 
         #endregion
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxTrabajo;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpMaxSalario;
         private System.Windows.Forms.Button buttonAñadir;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridViewMostrar;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.Button buttonBorrar;
     }
 }
