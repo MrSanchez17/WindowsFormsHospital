@@ -54,7 +54,7 @@ namespace ConexionSql
                 return;
             }
 
-            int jobId = ((Job)dataGridViewMostrar.SelectedRows[0].DataBoundItem).IdJob;
+            int jobId = ((Job)dataGridViewMostrar.SelectedRows[0].DataBoundItem).job_id;
 
             var confirmResult = MessageBox.Show("¿Estás seguro de eliminar este trabajo?",
                                                 "Confirmar eliminación",

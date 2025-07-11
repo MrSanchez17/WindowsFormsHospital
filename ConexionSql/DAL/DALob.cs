@@ -13,14 +13,14 @@ namespace ConexionSql
 
             try
             {
-                SqlCommand cmd = new SqlCommand("SELECT* FROM Job", connection.ObtenerConexion());
+                SqlCommand cmd = new SqlCommand("SELECT* FROM jobs", connection.ObtenerConexion());
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
                     Job job = new Job
                     {
-                        IdJob = reader.GetInt32(reader.GetOrdinal("IdJob")),
+                        job_id = reader.GetInt32(reader.GetOrdinal("job_id")),
                         job_title = reader.GetString(reader.GetOrdinal("job_title")),
                         min_salary = reader.IsDBNull(reader.GetOrdinal("min_salary")) ? 0 : reader.GetDecimal(reader.GetOrdinal("min_salary")),
                         max_salary = reader.IsDBNull(reader.GetOrdinal("max_salary")) ? 0 : reader.GetDecimal(reader.GetOrdinal("max_salary"))
@@ -44,7 +44,7 @@ namespace ConexionSql
         }
         public void Save(Job job)
         {
-            string query = "INSERT INTO Job (job_title, min_salary, max_salary) VALUES (@textBoxTrabajo, @numericUpDown1, @numericUpMaxSalario)";
+            string query = "INSERT INTO jobs (job_id, min_salary, max_salary) VALUES (@textBoxTrabajo, @numericUpDown1, @numericUpMaxSalario)";
 
             try
             {
@@ -69,7 +69,7 @@ namespace ConexionSql
         }
         public void Delete(int jobId)
         {
-            string query = "DELETE FROM Job WHERE IdJob = @id";
+            string query = "DELETE FROM jobs WHERE job_id = @id";
 
             try
             {
@@ -91,7 +91,7 @@ namespace ConexionSql
         }
         public void Update(Job job)
         {
-            string query = "UPDATE Job SET job_title = @textBoxTrabajo, min_salary = @numericUpDown1, max_salary = @numericUpMaxSalario WHERE IdJob = @id";
+            string query = "UPDATE jobs SET job_id = @textBoxTrabajo, min_salary = @numericUpDown1, max_salary = @numericUpMaxSalario WHERE IdJob = @id";
             try
             {
                 connection.ObtenerConexion();
@@ -100,7 +100,7 @@ namespace ConexionSql
                     cmd.Parameters.AddWithValue("@textBoxTrabajo", job.job_title);
                     cmd.Parameters.AddWithValue("@numericUpDown1", job.min_salary);
                     cmd.Parameters.AddWithValue("@numericUpMaxSalario", job.max_salary);
-                    cmd.Parameters.AddWithValue("@id", job.IdJob);
+                    cmd.Parameters.AddWithValue("@id", job.job_id);
                     cmd.ExecuteNonQuery();
                 }
             }
